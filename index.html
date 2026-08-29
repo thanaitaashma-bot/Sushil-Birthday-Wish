@@ -2158,14 +2158,8 @@ footer strong {
      birthday-song.mp3
 ===================================================== -->
 
-<audio
-    id="music"
-    loop>
-
-    <source
-        src="birthday-song.m4a"
-        type="audio/mpeg">
-
+<audio id="music" loop preload="metadata">
+    <source src="birthday-song.m4a" type="audio/mp4">
 </audio>
 
 
@@ -2807,53 +2801,41 @@ function closeFinal() {
    MUSIC
 ===================================================== */
 
-const music =
-    document.getElementById("music");
-
-
-const musicButton =
-    document.getElementById(
-        "musicButton"
-    );
-
+const music = document.getElementById("music");
+const musicButton = document.getElementById("musicButton");
 
 let musicPlaying = false;
 
+async function toggleMusic() {
 
-function toggleMusic() {
+    try {
 
-    if (!musicPlaying) {
+        if (!musicPlaying) {
 
-        music.play()
+            music.volume = 0.8;
 
-            .then(() => {
+            await music.play();
 
-                musicPlaying = true;
+            musicPlaying = true;
 
-                musicButton.innerHTML =
-                    "⏸️ Pause Music";
+            musicButton.innerHTML = "⏸️ Pause Music";
 
-            })
+        } else {
 
-            .catch(() => {
+            music.pause();
 
-                alert(
-                    "Add your song as birthday-song.mp3 in the same folder as index.html."
-                );
+            musicPlaying = false;
 
-            });
+            musicButton.innerHTML = "🎵 Play Music";
+        }
 
-    } else {
+    } catch (error) {
 
-        music.pause();
+        console.log("Audio error:", error);
 
-        musicPlaying = false;
-
-        musicButton.innerHTML =
-            "🎵 Play Music";
+        musicButton.innerHTML = "🎵 Tap Again";
 
     }
-
 }
 
 
