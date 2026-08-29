@@ -705,6 +705,7 @@ button {
     font-size: 14px;
 }
 
+```css
 /* =====================================================
    MEMORY PHOTOS
 ===================================================== */
@@ -715,39 +716,27 @@ button {
 
 .memory-grid {
     display: grid;
-
-    grid-template-columns:
-        repeat(3, 1fr);
-
+    grid-template-columns: repeat(3, 1fr);
     gap: 25px;
 }
 
 .memory {
-    height: 280px;
-
+    height: 360px;
     border-radius: 25px;
-
     overflow: hidden;
+    border: 1px solid rgba(255, 70, 110, .5);
 
-    border:
-        1px solid rgba(255, 70, 110, .5);
-
-    background:
-        linear-gradient(
-            145deg,
-            #500014,
-            #160007
-        );
+    background: #090005;
 
     display: flex;
-
     align-items: center;
-
     justify-content: center;
 
     position: relative;
-
     transition: .5s;
+
+    box-shadow:
+        0 10px 30px rgba(0,0,0,.4);
 }
 
 .memory:hover {
@@ -759,26 +748,178 @@ button {
         0 20px 50px rgba(255,23,68,.35);
 }
 
-.memory img {
+/* Photo container */
+.memory-photo {
+    width: 100%;
+    height: 100%;
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #080005;
+}
+
+/* Show the ENTIRE photo */
+.memory-photo img {
     width: 100%;
     height: 100%;
 
-    object-fit: cover;
-}
+    object-fit: contain;
+    object-position: center;
 
-.memory-placeholder {
-    text-align: center;
-
-    color: #ff9eb1;
-}
-
-.memory-placeholder span {
     display: block;
 
-    font-size: 55px;
-
-    margin-bottom: 10px;
+    transition:
+        transform .6s ease,
+        filter .6s ease;
 }
+
+/* Romantic overlay */
+.memory-overlay {
+    position: absolute;
+
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    padding: 45px 20px 20px;
+
+    text-align: center;
+
+    color: white;
+
+    background:
+        linear-gradient(
+            transparent,
+            rgba(70,0,15,.95)
+        );
+
+    transform: translateY(100%);
+
+    transition: .5s ease;
+}
+
+.memory-overlay span {
+    display: block;
+
+    font-size: 18px;
+    margin-bottom: 8px;
+
+    font-family:
+        "Dancing Script",
+        cursive;
+}
+
+.memory-overlay p {
+    margin: 0;
+
+    font-size: 22px;
+    font-weight: 600;
+}
+
+/* Desktop hover */
+.memory-photo:hover img {
+    transform: scale(1.03);
+}
+
+.memory-photo:hover .memory-overlay {
+    transform: translateY(0);
+}
+
+
+/* =====================================================
+   MOBILE MEMORY PHOTOS
+===================================================== */
+
+@media(max-width: 700px) {
+
+    .memory-grid {
+        grid-template-columns: 1fr;
+
+        gap: 30px;
+
+        width: 100%;
+        max-width: 450px;
+
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .memory {
+        width: 100%;
+
+        /* Taller mobile card */
+        height: auto;
+
+        min-height: 0;
+
+        aspect-ratio: 3 / 4;
+
+        border-radius: 22px;
+    }
+
+    .memory-photo {
+        width: 100%;
+        height: 100%;
+    }
+
+    .memory-photo img {
+        width: 100%;
+        height: 100%;
+
+        /*
+         * CONTAIN = entire photo stays visible
+         */
+        object-fit: contain;
+        object-position: center;
+    }
+
+    /*
+     * Keep the caption visible on mobile
+     * because phones don't have hover.
+     */
+    .memory-overlay {
+        transform: translateY(0);
+
+        padding:
+            55px 15px 18px;
+    }
+
+    .memory-overlay span {
+        font-size: 17px;
+    }
+
+    .memory-overlay p {
+        font-size: 20px;
+    }
+}
+
+
+/* Smaller phones */
+@media(max-width: 400px) {
+
+    .memory {
+        aspect-ratio: 3 / 4;
+        border-radius: 18px;
+    }
+
+    .memory-overlay {
+        padding:
+            50px 12px 15px;
+    }
+
+    .memory-overlay span {
+        font-size: 15px;
+    }
+
+    .memory-overlay p {
+        font-size: 18px;
+    }
+}
+```
+
 
 /* =====================================================
    LOVE CARD
