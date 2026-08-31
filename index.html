@@ -1,5 +1,3 @@
-from my heart to yours heart Sushil ❤️
-</h2>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,12 +9,12 @@ from my heart to yours heart Sushil ❤️
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
 
 /* =====================================================
-   BASIC
+   RESET
 ===================================================== */
 
 * {
@@ -30,10 +28,22 @@ html {
 }
 
 body {
-    background:
-        radial-gradient(circle at 50% 20%, #760019 0%, #30000d 35%, #050005 85%);
-    color: white;
     font-family: "Poppins", sans-serif;
+
+    background:
+        radial-gradient(circle at 15% 10%, rgba(0, 102, 255, .48), transparent 32%),
+        radial-gradient(circle at 85% 25%, rgba(255, 0, 55, .42), transparent 34%),
+        linear-gradient(
+            135deg,
+            #020a2b 0%,
+            #061a55 38%,
+            #3a0015 72%,
+            #08000a 100%
+        );
+
+    background-attachment: fixed;
+
+    color: white;
     overflow-x: hidden;
 }
 
@@ -41,27 +51,28 @@ body.locked {
     overflow: hidden;
 }
 
-section {
-    position: relative;
+button {
+    font-family: inherit;
 }
+
+/* =====================================================
+   CONTAINER
+===================================================== */
 
 .container {
     width: min(1100px, 92%);
     margin: auto;
 }
 
-button {
-    font-family: inherit;
-}
-
 /* =====================================================
-   INTRO SCREEN
+   INTRO
 ===================================================== */
 
 .intro {
     position: fixed;
     inset: 0;
-    z-index: 9999;
+
+    z-index: 10000;
 
     display: flex;
     align-items: center;
@@ -69,76 +80,129 @@ button {
 
     text-align: center;
 
+    padding: 25px;
+
     background:
-        radial-gradient(circle at center, #70001c, #1b0009 55%, #030003);
+        radial-gradient(
+            circle at 20% 20%,
+            rgba(0, 102, 255, .45),
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at 80% 70%,
+            rgba(255, 0, 55, .45),
+            transparent 40%
+        ),
+        linear-gradient(
+            135deg,
+            #02082a,
+            #071a57 48%,
+            #3b0017
+        );
 
     transition:
-        opacity 1.2s ease,
-        visibility 1.2s ease;
+        opacity 1s ease,
+        visibility 1s ease;
 }
 
 .intro.hide {
     opacity: 0;
     visibility: hidden;
+    pointer-events: none;
 }
 
 .intro-content {
-    width: 90%;
-    max-width: 600px;
+    max-width: 700px;
 }
 
 .intro-heart {
-    font-size: 80px;
+    font-size: 100px;
 
     animation:
-        heartbeat 1.2s infinite;
+        introHeartbeat 1.2s infinite;
 
     filter:
-        drop-shadow(0 0 30px #ff1744);
+        drop-shadow(0 0 25px #1677ff)
+        drop-shadow(0 0 45px rgba(255,23,68,.6));
+
+    margin-bottom: 20px;
 }
 
 .intro h1 {
-    font-family: "Dancing Script", cursive;
-    font-size: clamp(45px, 10vw, 80px);
-    margin: 20px 0 10px;
+    font-family:
+        "Dancing Script",
+        cursive;
 
-    color: #ffb6c5;
-
-    text-shadow:
-        0 0 15px #ff1744,
-        0 0 40px #ff1744;
-}
-
-.intro p {
-    color: #ffd8e0;
-    margin-bottom: 35px;
-}
-
-.enter-btn {
-    border: 1px solid #ff3159;
-    background:
-        linear-gradient(135deg, #680018, #ff1744);
+    font-size:
+        clamp(55px, 10vw, 95px);
 
     color: white;
 
-    padding: 16px 35px;
+    text-shadow:
+        0 0 15px #1677ff,
+        0 0 35px #ff1744;
+}
+
+.intro p {
+    margin:
+        15px 0 30px;
+
+    font-size: 18px;
+
+    color: #e5edff;
+}
+
+.enter-btn {
+    border: none;
+
+    padding:
+        15px 30px;
 
     border-radius: 50px;
 
+    color: white;
+
+    font-size: 16px;
+
+    font-weight: 600;
+
     cursor: pointer;
 
-    font-size: 17px;
+    background:
+        linear-gradient(
+            135deg,
+            #087cff,
+            #174ed1,
+            #e0003c
+        );
 
     box-shadow:
-        0 0 30px rgba(255, 23, 68, .5);
+        0 10px 35px rgba(0, 91, 255, .35),
+        0 10px 35px rgba(255, 0, 55, .25);
 
-    transition: .3s;
+    transition:
+        transform .3s ease,
+        box-shadow .3s ease;
 }
 
 .enter-btn:hover {
-    transform: scale(1.08);
+    transform: translateY(-4px) scale(1.04);
+
     box-shadow:
-        0 0 50px rgba(255, 23, 68, .9);
+        0 15px 45px rgba(0, 110, 255, .45),
+        0 15px 45px rgba(255, 0, 55, .35);
+}
+
+@keyframes introHeartbeat {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.15);
+    }
 }
 
 /* =====================================================
@@ -147,6 +211,7 @@ button {
 
 .heart {
     position: fixed;
+
     bottom: -50px;
 
     z-index: 3;
@@ -156,8 +221,10 @@ button {
     animation:
         floatingHeart linear forwards;
 
+    color: #2196f3;
+
     filter:
-        drop-shadow(0 0 8px #ff1744);
+        drop-shadow(0 0 8px #2f8cff);
 }
 
 @keyframes floatingHeart {
@@ -165,21 +232,28 @@ button {
     0% {
         transform:
             translateY(0)
-            rotate(0deg)
-            scale(.7);
+            translateX(0)
+            rotate(0deg);
 
         opacity: 0;
     }
 
-    15% {
+    10% {
         opacity: 1;
+    }
+
+    50% {
+        transform:
+            translateY(-50vh)
+            translateX(40px)
+            rotate(180deg);
     }
 
     100% {
         transform:
             translateY(-115vh)
-            rotate(360deg)
-            scale(1.4);
+            translateX(-50px)
+            rotate(360deg);
 
         opacity: 0;
     }
@@ -192,22 +266,31 @@ button {
 .confetti {
     position: fixed;
 
-    top: -30px;
+    top: -20px;
 
-    width: 8px;
-    height: 14px;
+    width: 9px;
+    height: 15px;
 
-    z-index: 100;
+    z-index: 9999;
 
     pointer-events: none;
 
     animation:
-        fall linear forwards;
+        confettiFall linear forwards;
 }
 
-@keyframes fall {
+@keyframes confettiFall {
 
-    to {
+    0% {
+        transform:
+            translateY(-30px)
+            translateX(0)
+            rotate(0deg);
+
+        opacity: 1;
+    }
+
+    100% {
         transform:
             translateY(110vh)
             translateX(var(--move))
@@ -225,28 +308,68 @@ button {
     min-height: 100vh;
 
     display: flex;
+
     align-items: center;
-    justify-content: center;
 
     text-align: center;
 
-    padding: 100px 0 50px;
+    padding:
+        100px 0 80px;
+
+    position: relative;
 
     overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at 50% 40%,
+            rgba(0, 94, 255, .16),
+            transparent 38%
+        );
 }
 
 .hero::before {
     content: "";
 
     position: absolute;
-    inset: 0;
+
+    width: 500px;
+    height: 500px;
+
+    border-radius: 50%;
 
     background:
         radial-gradient(
-            circle at 50% 50%,
-            rgba(255, 0, 55, .18),
-            transparent 50%
+            circle,
+            rgba(0, 110, 255, .18),
+            transparent 70%
         );
+
+    top: 10%;
+    left: -200px;
+
+    pointer-events: none;
+}
+
+.hero::after {
+    content: "";
+
+    position: absolute;
+
+    width: 500px;
+    height: 500px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255, 0, 55, .16),
+            transparent 70%
+        );
+
+    bottom: -250px;
+    right: -150px;
 
     pointer-events: none;
 }
@@ -254,90 +377,120 @@ button {
 .badge {
     display: inline-block;
 
-    padding: 8px 18px;
+    padding:
+        9px 18px;
 
-    border: 1px solid #ff4165;
     border-radius: 50px;
 
-    color: #ffb8c7;
+    border:
+        1px solid rgba(82, 157, 255, .6);
 
-    font-size: 12px;
+    background:
+        rgba(0, 73, 180, .15);
 
-    letter-spacing: 3px;
+    color:
+        #b9d7ff;
 
-    text-transform: uppercase;
+    font-size: 13px;
 
     margin-bottom: 25px;
+
+    box-shadow:
+        0 0 20px rgba(0, 102, 255, .18);
 }
 
 .hero h1 {
-    font-family: "Dancing Script", cursive;
+    font-family:
+        "Dancing Script",
+        cursive;
 
-    font-size: clamp(70px, 15vw, 155px);
+    font-size:
+        clamp(70px, 13vw, 145px);
 
-    line-height: .8;
+    line-height: .9;
 
     color: white;
 
     text-shadow:
-        0 0 15px #ff1744,
-        0 0 45px #ff1744,
-        0 0 90px #ff003c;
+        0 0 20px #1677ff,
+        0 0 50px rgba(255,23,68,.7);
 
     animation:
         titleGlow 2s infinite alternate;
 }
 
 .hero h1 span {
-    color: #ff1744;
+    color:
+        #ff4168;
 }
 
 .hero-subtitle {
-    margin-top: 30px;
+    margin:
+        35px auto;
 
-    font-size: 19px;
-
-    color: #ffe1e8;
+    max-width: 700px;
 
     line-height: 1.8;
+
+    color:
+        #d9e6ff;
+
+    font-size:
+        clamp(15px, 2vw, 19px);
 }
 
 .hero-subtitle strong {
-    color: #ff4268;
-}
+    color:
+        #ff4c70;
 
+    text-shadow:
+        0 0 10px #ff1744;
+}
 
 /* =====================================================
    BUTTONS
 ===================================================== */
 
 .btn {
-    border: 1px solid #ff3159;
+    border: none;
 
-    background:
-        linear-gradient(135deg, #730019, #ff1744);
-
-    color: white;
-
-    padding: 14px 28px;
+    padding:
+        14px 25px;
 
     border-radius: 50px;
 
     cursor: pointer;
 
+    color: white;
+
     font-size: 15px;
 
-    box-shadow:
-        0 0 25px rgba(255, 23, 68, .4);
+    font-weight: 600;
 
-    transition: .3s;
+    background:
+        linear-gradient(
+            135deg,
+            #087cff,
+            #315ce8,
+            #e0003c
+        );
+
+    box-shadow:
+        0 10px 30px rgba(0, 100, 255, .25),
+        0 10px 30px rgba(255, 0, 55, .2);
+
+    transition:
+        transform .3s ease,
+        box-shadow .3s ease;
 }
 
 .btn:hover {
-    transform: translateY(-4px) scale(1.04);
+    transform:
+        translateY(-4px);
 
     box-shadow:
-        0 0 45px rgba(255, 23, 68, .8);
+        0 15px 40px rgba(0, 110, 255, .35),
+        0 15px 40px rgba(255, 0, 55, .3);
 }
 
 /* =====================================================
@@ -345,44 +498,84 @@ button {
 ===================================================== */
 
 .section-title {
-    font-family: "Dancing Script", cursive;
+    font-family:
+        "Dancing Script",
+        cursive;
 
-    font-size: clamp(42px, 8vw, 65px);
-
-    color: #ff7894;
+    font-size:
+        clamp(45px, 7vw, 70px);
 
     text-align: center;
+
+    color: white;
 
     margin-bottom: 60px;
 
     text-shadow:
-        0 0 20px rgba(255, 23, 68, .5);
+        0 0 15px rgba(0, 110, 255, .35),
+        0 0 25px rgba(255, 23, 68, .35);
 }
 
 /* =====================================================
-   3D CAKE
+   CAKE SECTION
 ===================================================== */
 
 .cake-section {
-    min-height: 850px;
+    position: relative;
 
-    padding: 110px 0;
+    padding:
+        130px 0;
 
-    display: flex;
-    align-items: center;
+    text-align: center;
+
+    background:
+        radial-gradient(
+            circle at 50% 40%,
+            rgba(255, 0, 65, .16),
+            transparent 42%
+        ),
+        radial-gradient(
+            circle at 10% 70%,
+            rgba(0, 110, 255, .13),
+            transparent 35%
+        );
+}
+
+.cake-section.cake-hidden .cake-scene,
+.cake-section.cake-hidden .cake-controls {
+    opacity: 0;
+
+    visibility: hidden;
+
+    transform:
+        translateY(35px)
+        scale(.92);
+
+    pointer-events: none;
+
+    max-height: 0;
 
     overflow: hidden;
 }
 
+.cake-scene,
+.cake-controls {
+    transition:
+        opacity .8s ease,
+        transform .8s ease,
+        visibility .8s ease;
+}
+
 .cake-scene {
-    height: 450px;
+    min-height: 400px;
 
     display: flex;
 
-    justify-content: center;
-    align-items: flex-end;
+    align-items: center;
 
-    perspective: 1000px;
+    justify-content: center;
+
+    padding-top: 80px;
 }
 
 .cake {
@@ -399,18 +592,89 @@ button {
 
 @keyframes cakeFloat {
 
-    0%,100% {
+    0%,
+    100% {
         transform:
             translateY(0)
-            rotateY(-5deg);
+            rotateY(-3deg);
     }
 
     50% {
         transform:
-            translateY(-18px)
-            rotateY(5deg);
+            translateY(-12px)
+            rotateY(3deg);
     }
 }
+
+/* =====================================================
+   LUXURY CAKE TOPPER
+===================================================== */
+
+.cake-topper {
+    position: absolute;
+
+    z-index: 40;
+
+    top: -52px;
+
+    left: 50%;
+
+    transform:
+        translateX(-50%);
+
+    padding:
+        7px 16px;
+
+    border-radius: 20px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #8d001f,
+            #d41445
+        );
+
+    border:
+        2px solid #ffd66d;
+
+    color:
+        #ffe7a3;
+
+    font-family:
+        "Dancing Script",
+        cursive;
+
+    font-size: 20px;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+
+    white-space: nowrap;
+
+    box-shadow:
+        0 0 18px rgba(255, 210, 90, .5);
+
+    animation:
+        topperGlow 2s ease-in-out infinite alternate;
+}
+
+@keyframes topperGlow {
+
+    from {
+        box-shadow:
+            0 0 10px rgba(255, 210, 90, .35);
+    }
+
+    to {
+        box-shadow:
+            0 0 24px rgba(255, 210, 90, .8);
+    }
+}
+
+/* =====================================================
+   CAKE LAYERS
+===================================================== */
 
 .cake-layer {
     position: absolute;
@@ -426,36 +690,54 @@ button {
     background:
         linear-gradient(
             90deg,
-            #fff0f3,
-            #ffb1c0,
-            #fff5f7
+            #5a0017 0%,
+            #8f0028 18%,
+            #d41445 42%,
+            #b00035 62%,
+            #6d001d 82%,
+            #430011 100%
         );
 
+    border:
+        2px solid rgba(255, 190, 80, .55);
+
     box-shadow:
-        inset -20px 0 30px rgba(130, 0, 25, .15),
-        0 20px 40px rgba(0,0,0,.5);
+        inset 12px 0 18px rgba(255, 255, 255, .08),
+        inset -20px 0 30px rgba(40, 0, 10, .28),
+        0 8px 0 rgba(55, 0, 18, .7),
+        0 20px 40px rgba(0,0,0,.55);
 }
 
 .layer-bottom {
     width: 310px;
-    height: 100px;
+    height: 95px;
 
     bottom: 0;
+
+    z-index: 10;
 }
 
 .layer-middle {
-    width: 245px;
-    height: 85px;
+    width: 255px;
+    height: 80px;
 
-    bottom: 75px;
+    bottom: 78px;
+
+    z-index: 20;
 }
 
 .layer-top {
-    width: 180px;
+    width: 205px;
     height: 70px;
 
-    bottom: 140px;
+    bottom: 145px;
+
+    z-index: 30;
 }
+
+/* =====================================================
+   CAKE ICING
+===================================================== */
 
 .icing {
     position: absolute;
@@ -466,32 +748,187 @@ button {
 
     height: 20px;
 
-    background: #ff1744;
+    background:
+        linear-gradient(
+            180deg,
+            #ff718d,
+            #d41445 55%,
+            #8f0028
+        );
 
     border-radius: 50%;
 
+    border:
+        2px solid rgba(255, 210, 110, .7);
+
     box-shadow:
-        0 0 20px rgba(255,23,68,.5);
+        0 0 14px rgba(255, 40, 85, .65),
+        0 3px 0 rgba(255, 205, 95, .55);
+}
+
+/* =====================================================
+   GOLD CAKE DECORATIONS
+===================================================== */
+
+.cake-layer::before {
+    content: "";
+
+    position: absolute;
+
+    left: 12px;
+    right: 12px;
+
+    bottom: 18px;
+
+    height: 5px;
+
+    border-radius: 999px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #b47718,
+            #ffe29a,
+            #b47718
+        );
+
+    box-shadow:
+        0 0 8px rgba(255, 210, 100, .45);
+}
+
+.cake-layer::after {
+    content:
+        "•  •  •  •  •  •  •";
+
+    position: absolute;
+
+    left: 50%;
+
+    bottom: 2px;
+
+    transform:
+        translateX(-50%);
+
+    white-space: nowrap;
+
+    color:
+        #ffd86b;
+
+    font-size: 13px;
+
+    letter-spacing: 4px;
+
+    text-shadow:
+        0 0 7px rgba(255, 210, 80, .7);
 }
 
 .cake-message {
     position: absolute;
 
-    width: 100%;
+    left: 50%;
+    top: 45%;
 
-    bottom: 35px;
+    transform:
+        translate(-50%, -50%);
 
-    text-align: center;
+    width: 90%;
 
-    color: #9d001d;
+    z-index: 20;
+
+    color:
+        #fff7df;
 
     font-family:
         "Dancing Script",
         cursive;
 
-    font-size: 30px;
+    font-size: 23px;
 
-    font-weight: bold;
+    font-weight: 700;
+
+    text-align: center;
+
+    text-shadow:
+        0 2px 2px #650018,
+        0 0 8px rgba(255, 205, 90, .75);
+}
+
+/* =====================================================
+   ROSE FLOWERS
+===================================================== */
+
+.cake-rose {
+    position: absolute;
+
+    z-index: 25;
+
+    font-size: 34px;
+
+    line-height: 1;
+
+    filter:
+        drop-shadow(
+            0 0 7px rgba(255, 30, 75, .9)
+        )
+        drop-shadow(
+            0 4px 5px rgba(0,0,0,.35)
+        );
+
+    text-shadow:
+        0 2px 2px rgba(50,0,0,.65),
+        0 0 9px rgba(255, 30, 70, .75);
+
+    animation:
+        roseSway 2.4s ease-in-out infinite;
+
+    transform-origin:
+        bottom center;
+}
+
+.rose-one {
+    left: 28px;
+    top: 18px;
+}
+
+.rose-two {
+    left: 50%;
+    top: 10px;
+
+    transform:
+        translateX(-50%);
+
+    animation-delay:
+        .35s;
+}
+
+.rose-three {
+    right: 28px;
+    top: 18px;
+
+    animation-delay:
+        .7s;
+}
+
+.rose-small {
+    font-size: 27px;
+
+    top: 20px;
+}
+
+@keyframes roseSway {
+
+    0%,
+    100% {
+        transform:
+            rotate(-4deg)
+            translateY(0);
+    }
+
+    50% {
+        transform:
+            rotate(4deg)
+            translateY(-4px);
+    }
 }
 
 /* =====================================================
@@ -501,7 +938,7 @@ button {
 .candles {
     position: absolute;
 
-    bottom: 202px;
+    top: -60px;
 
     left: 50%;
 
@@ -510,9 +947,13 @@ button {
 
     display: flex;
 
-    gap: 16px;
+    justify-content: center;
 
-    z-index: 20;
+    align-items: flex-end;
+
+    gap: 22px;
+
+    z-index: 50;
 }
 
 .candle {
@@ -524,11 +965,14 @@ button {
     background:
         repeating-linear-gradient(
             45deg,
-            white 0 7px,
-            #ff1744 7px 14px
+            #fff 0 7px,
+            #d90035 7px 14px
         );
 
     position: relative;
+
+    box-shadow:
+        0 2px 5px rgba(0,0,0,.35);
 }
 
 .flame {
@@ -540,7 +984,8 @@ button {
     top: -27px;
     left: -2px;
 
-    background: #ffb300;
+    background:
+        #ffb300;
 
     border-radius:
         50% 50% 50% 0;
@@ -561,41 +1006,23 @@ button {
     from {
         transform:
             rotate(-45deg)
-            scale(.85);
+            scale(.9);
     }
 
     to {
         transform:
             rotate(-45deg)
-            scale(1.15);
+            scale(1.1);
     }
 }
 
 /* =====================================================
-   CAKE SURPRISE / CANDLE / CUTTING
+   CAKE CONTROLS
 ===================================================== */
-
-.cake-section {
-    position: relative;
-}
-
-.cake-section.cake-hidden .cake-scene,
-.cake-section.cake-hidden .cake-controls {
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(35px) scale(.92);
-    pointer-events: none;
-    max-height: 0;
-    overflow: hidden;
-}
-
-.cake-scene,
-.cake-controls {
-    transition: opacity .8s ease, transform .8s ease, visibility .8s ease;
-}
 
 .cake-controls {
     text-align: center;
+
     margin-top: 15px;
 }
 
@@ -605,67 +1032,121 @@ button {
 
 .cake-controls .btn:disabled {
     opacity: .45;
+
     cursor: not-allowed;
+
     transform: none;
+
     box-shadow: none;
 }
 
 .cake-hint {
     margin-top: 12px;
-    color: #ffc7d3;
+
+    color:
+        #ffc7d3;
+
     font-size: 14px;
+
     min-height: 24px;
 }
 
+/* =====================================================
+   CAKE ANIMATIONS
+===================================================== */
+
 .cake-section.cake-cut .layer-top {
-    animation: cakeTopCut 1.2s ease forwards;
+    animation:
+        cakeTopCut 1.2s ease forwards;
 }
 
 .cake-section.cake-cut .layer-middle {
-    animation: cakeMiddleCut 1.2s ease forwards;
+    animation:
+        cakeMiddleCut 1.2s ease forwards;
 }
 
 .cake-section.cake-cut .layer-bottom {
-    animation: cakeBottomCut 1.2s ease forwards;
+    animation:
+        cakeBottomCut 1.2s ease forwards;
 }
 
 .cake-section.cake-blown .flame {
     opacity: 0;
-    transform: rotate(-45deg) scale(0);
+
+    transform:
+        rotate(-45deg)
+        scale(0);
+
     animation: none;
-    transition: opacity .4s ease, transform .4s ease;
+
+    transition:
+        opacity .4s ease,
+        transform .4s ease;
 }
 
 .cake-section.cake-blown .candle::after {
     content: "💨";
+
     position: absolute;
+
     top: -34px;
     left: -8px;
+
     font-size: 20px;
+
     opacity: 0;
-    animation: smoke 1.3s ease forwards;
+
+    animation:
+        smoke 1.3s ease forwards;
 }
 
 @keyframes smoke {
-    0% { opacity: .8; transform: translateY(0) scale(.7); }
-    100% { opacity: 0; transform: translateY(-35px) translateX(8px) scale(1.3); }
+
+    0% {
+        opacity: .8;
+
+        transform:
+            translateY(0)
+            scale(.7);
+    }
+
+    100% {
+        opacity: 0;
+
+        transform:
+            translateY(-35px)
+            translateX(8px)
+            scale(1.3);
+    }
 }
 
 @keyframes cakeTopCut {
+
     to {
-        transform: translateX(-50%) translateX(35px) rotateY(-12deg) rotateZ(3deg);
+        transform:
+            translateX(-50%)
+            translateX(35px)
+            rotateY(-12deg)
+            rotateZ(3deg);
     }
 }
 
 @keyframes cakeMiddleCut {
+
     to {
-        transform: translateX(-50%) translateX(-18px) rotateZ(-1deg);
+        transform:
+            translateX(-50%)
+            translateX(-18px)
+            rotateZ(-1deg);
     }
 }
 
 @keyframes cakeBottomCut {
+
     to {
-        transform: translateX(-50%) translateX(10px);
+        transform:
+            translateX(-50%)
+            translateX(10px);
     }
 }
 
@@ -674,11 +1155,20 @@ button {
 ===================================================== */
 
 .letters {
-    padding: 110px 0;
+    padding:
+        130px 0;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(0, 55, 160, .08),
+            rgba(120, 0, 35, .10)
+        );
 }
 
 .letter-grid {
-    display: grid;
+    display:
+        grid;
 
     grid-template-columns:
         repeat(3, 1fr);
@@ -687,53 +1177,37 @@ button {
 }
 
 .letter {
-    min-height: 270px;
+    min-height: 300px;
 
-    padding: 35px;
-
-    border:
-        1px solid rgba(255, 65, 100, .45);
+    padding: 35px 28px;
 
     border-radius: 25px;
+
+    border:
+        1px solid rgba(66, 144, 255, .35);
 
     background:
         linear-gradient(
             145deg,
-            rgba(100, 0, 25, .65),
-            rgba(20, 0, 8, .8)
+            rgba(7, 31, 91, .7),
+            rgba(67, 0, 25, .7)
         );
 
     box-shadow:
-        0 20px 40px rgba(0,0,0,.4);
+        0 15px 40px rgba(0,0,0,.25),
+        inset 0 0 30px rgba(0, 102, 255, .06);
 
-    position: relative;
-
-    overflow: hidden;
-
-    transition: .4s;
+    transition:
+        transform .4s ease,
+        border-color .4s ease;
 }
 
 .letter:hover {
     transform:
-        translateY(-12px)
-        rotate(1deg);
+        translateY(-10px);
 
-    box-shadow:
-        0 20px 50px rgba(255,23,68,.35);
-}
-
-.letter::after {
-    content: "💌";
-
-    position: absolute;
-
-    right: 20px;
-    top: 15px;
-
-    font-size: 42px;
-
-    animation:
-        envelope 2s infinite;
+    border-color:
+        rgba(255, 42, 87, .7);
 }
 
 .letter h3 {
@@ -741,264 +1215,187 @@ button {
         "Dancing Script",
         cursive;
 
+    color:
+        #ff6180;
+
     font-size: 35px;
 
-    color: #ff6484;
-
-    margin-bottom: 18px;
+    margin-bottom: 20px;
 }
 
 .letter p {
-    color: #ffdce4;
+    color:
+        #dce7ff;
 
     line-height: 1.9;
 
-    font-size: 14px;
+    font-size: 15px;
 }
 
 /* =====================================================
-   MEMORY PHOTOS
+   MEMORIES
 ===================================================== */
 
 .memories {
-    padding: 110px 0;
+    padding:
+        130px 0;
 }
 
 .memory-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
     gap: 25px;
 }
 
 .memory {
-    height: 360px;
-    border-radius: 25px;
     overflow: hidden;
-    border: 1px solid rgba(255, 70, 110, .5);
 
-    background: #090005;
+    border-radius: 25px;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    border:
+        1px solid rgba(255, 44, 89, .35);
 
-    position: relative;
-    transition: .5s;
+    background:
+        rgba(4, 14, 50, .7);
 
     box-shadow:
-        0 10px 30px rgba(0,0,0,.4);
+        0 20px 50px rgba(0,0,0,.3);
+
+    transition:
+        transform .4s ease;
 }
 
 .memory:hover {
     transform:
-        scale(1.04)
-        rotate(-1deg);
-
-    box-shadow:
-        0 20px 50px rgba(255,23,68,.35);
+        translateY(-8px);
 }
 
-/* Photo container */
 .memory-photo {
-    width: 100%;
-    height: 100%;
     position: relative;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    width: 100%;
 
-    background: #080005;
+    aspect-ratio:
+        1 / 1;
+
+    overflow: hidden;
 }
 
-/* Show the ENTIRE photo */
 .memory-photo img {
     width: 100%;
     height: 100%;
 
-    object-fit: contain;
-    object-position: center;
+    object-fit: cover;
 
     display: block;
 
     transition:
-        transform .6s ease,
-        filter .6s ease;
+        transform .6s ease;
 }
 
-/* Romantic overlay */
+.memory:hover img {
+    transform:
+        scale(1.08);
+}
+
 .memory-overlay {
     position: absolute;
 
-    left: 0;
-    right: 0;
-    bottom: 0;
+    inset: 0;
 
-    padding: 45px 20px 20px;
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    align-items:
+        center;
+
+    justify-content:
+        flex-end;
 
     text-align: center;
 
-    color: white;
+    padding: 25px;
 
     background:
         linear-gradient(
             transparent,
-            rgba(70,0,15,.95)
+            rgba(2, 8, 35, .95)
         );
-
-    transform: translateY(100%);
-
-    transition: .5s ease;
 }
 
 .memory-overlay span {
-    display: block;
+    color:
+        white;
 
-    font-size: 18px;
-    margin-bottom: 8px;
+    font-weight:
+        600;
 
-    font-family:
-        "Dancing Script",
-        cursive;
+    font-size: 16px;
 }
 
 .memory-overlay p {
-    margin: 0;
+    color:
+        #ff9db0;
 
-    font-size: 22px;
-    font-weight: 600;
+    margin-top:
+        6px;
+
+    font-size:
+        13px;
 }
-
-/* Desktop hover */
-.memory-photo:hover img {
-    transform: scale(1.03);
-}
-
-.memory-photo:hover .memory-overlay {
-    transform: translateY(0);
-}
-
 
 /* =====================================================
-   MOBILE MEMORY PHOTOS
-===================================================== */
-
-@media(max-width: 700px) {
-
-    .memory-grid {
-        grid-template-columns: 1fr;
-
-        gap: 30px;
-
-        width: 100%;
-        max-width: 450px;
-
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    .memory {
-        width: 100%;
-
-        /* Taller mobile card */
-        height: auto;
-
-        min-height: 0;
-
-        aspect-ratio: 3 / 4;
-
-        border-radius: 22px;
-    }
-
-    .memory-photo {
-        width: 100%;
-        height: 100%;
-    }
-
-    .memory-photo img {
-        width: 100%;
-        height: 100%;
-
-        /*
-         * CONTAIN = entire photo stays visible
-         */
-        object-fit: contain;
-        object-position: center;
-    }
-
-    /*
-     * Keep the caption visible on mobile
-     * because phones don't have hover.
-     */
-    .memory-overlay {
-        transform: translateY(0);
-
-        padding:
-            55px 15px 18px;
-    }
-
-    .memory-overlay span {
-        font-size: 17px;
-    }
-
-    .memory-overlay p {
-        font-size: 20px;
-    }
-}
-
-
-/* Smaller phones */
-@media(max-width: 400px) {
-
-    .memory {
-        aspect-ratio: 3 / 4;
-        border-radius: 18px;
-    }
-
-    .memory-overlay {
-        padding:
-            50px 12px 15px;
-    }
-
-    .memory-overlay span {
-        font-size: 15px;
-    }
-
-    .memory-overlay p {
-        font-size: 18px;
-    }
-}
-
-
-/* =====================================================
-   LOVE CARD
+   MAIN LOVE MESSAGE
 ===================================================== */
 
 .message {
-    padding: 110px 0;
+    padding:
+        130px 0;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(0, 55, 160, .08),
+            rgba(120, 0, 35, .10)
+        );
 }
 
 .love-card {
-    max-width: 900px;
+    max-width:
+        850px;
 
-    margin: auto;
+    margin:
+        auto;
 
-    padding: 65px 45px;
+    padding:
+        65px 50px;
 
-    text-align: center;
+    border-radius:
+        35px;
 
-    border:
-        1px solid #ff1744;
-
-    border-radius: 35px;
+    text-align:
+        center;
 
     background:
-        rgba(75, 0, 20, .55);
+        linear-gradient(
+            145deg,
+            rgba(3, 29, 88, .8),
+            rgba(72, 0, 28, .8)
+        );
 
-    backdrop-filter: blur(15px);
+    border:
+        1px solid rgba(58, 139, 255, .3);
 
     box-shadow:
-        0 0 50px rgba(255,23,68,.2);
+        0 0 50px rgba(0, 81, 255, .12),
+        0 0 50px rgba(255,23,68,.12);
 }
 
 .love-card h2 {
@@ -1006,44 +1403,59 @@ button {
         "Dancing Script",
         cursive;
 
-    color: #ff6283;
+    color:
+        #ff6283;
 
-    font-size: 58px;
+    font-size:
+        58px;
 
-    margin-bottom: 25px;
+    margin-bottom:
+        25px;
 }
 
 .love-card p {
-    color: #ffe3e9;
+    color:
+        #e3eaff;
 
-    line-height: 2;
+    line-height:
+        2;
 
-    font-size: 17px;
+    font-size:
+        17px;
 }
 
 .highlight {
-    color: #ff3d66;
+    color:
+        #ff3d66;
 
-    font-weight: 600;
+    font-weight:
+        600;
 }
 
 /* =====================================================
-   HEART
+   BIG LOVE HEART
 ===================================================== */
 
 .big-love {
-    padding: 150px 0;
+    padding:
+        150px 0;
 
-    text-align: center;
+    text-align:
+        center;
 }
 
 .heart-wrapper {
-    width: 180px;
-    height: 180px;
+    width:
+        180px;
 
-    margin: auto;
+    height:
+        180px;
 
-    position: relative;
+    margin:
+        auto;
+
+    position:
+        relative;
 
     transform:
         rotate(-45deg);
@@ -1051,46 +1463,66 @@ button {
     animation:
         heartbeat 1.2s infinite;
 
-    background: #ec0036;
+    background:
+        #1677ff;
 
     box-shadow:
-        0 0 50px #ff1744;
+        0 0 35px #1677ff,
+        0 0 70px rgba(255, 23, 68, .35);
 }
 
 .heart-wrapper::before,
 .heart-wrapper::after {
-    content: "";
+    content:
+        "";
 
-    position: absolute;
+    position:
+        absolute;
 
-    width: 180px;
-    height: 180px;
+    width:
+        180px;
 
-    border-radius: 50%;
+    height:
+        180px;
 
-    background: #ec0036;
+    border-radius:
+        50%;
+
+    background:
+        #1677ff;
 }
 
 .heart-wrapper::before {
-    top: -90px;
-    left: 0;
+    top:
+        -90px;
+
+    left:
+        0;
 }
 
 .heart-wrapper::after {
-    left: 90px;
-    top: 0;
+    left:
+        90px;
+
+    top:
+        0;
 }
 
 .heart-text {
-    position: absolute;
+    position:
+        absolute;
 
-    width: 300px;
+    width:
+        300px;
 
-    z-index: 5;
+    z-index:
+        5;
 
-    left: -60px;
+    left:
+        -60px;
 
-    top: 68px;
+    top:
+        68px;
 
     transform:
         rotate(45deg);
@@ -1099,9 +1531,11 @@ button {
         "Dancing Script",
         cursive;
 
-    font-size: 31px;
+    font-size:
+        31px;
 
-    color: white;
+    color:
+        white;
 }
 
 /* =====================================================
@@ -1109,45 +1543,58 @@ button {
 ===================================================== */
 
 .kisses {
-    padding: 100px 0;
+    padding:
+        100px 0;
 
-    text-align: center;
+    text-align:
+        center;
 }
 
 .kiss-row {
-    display: flex;
+    display:
+        flex;
 
-    justify-content: center;
+    justify-content:
+        center;
 
-    gap: 25px;
+    gap:
+        25px;
 
-    flex-wrap: wrap;
+    flex-wrap:
+        wrap;
 }
 
 .kiss {
-    font-size: 55px;
+    font-size:
+        55px;
 
     animation:
         kissFloat 2s ease-in-out infinite;
 
     filter:
-        drop-shadow(0 0 12px #ff1744);
+        drop-shadow(
+            0 0 12px #ff1744
+        );
 }
 
 .kiss:nth-child(2) {
-    animation-delay: .2s;
+    animation-delay:
+        .2s;
 }
 
 .kiss:nth-child(3) {
-    animation-delay: .4s;
+    animation-delay:
+        .4s;
 }
 
 .kiss:nth-child(4) {
-    animation-delay: .6s;
+    animation-delay:
+        .6s;
 }
 
 .kiss:nth-child(5) {
-    animation-delay: .8s;
+    animation-delay:
+        .8s;
 }
 
 @keyframes kissFloat {
@@ -1161,26 +1608,32 @@ button {
 }
 
 /* =====================================================
-   SURPRISE
+   SECRET SURPRISE
 ===================================================== */
 
 .surprise {
-    padding: 120px 0;
+    padding:
+        120px 0;
 
-    text-align: center;
+    text-align:
+        center;
 }
 
 .secret {
-    max-width: 800px;
+    max-width:
+        800px;
 
     margin:
         35px auto 0;
 
-    max-height: 0;
+    max-height:
+        0;
 
-    overflow: hidden;
+    overflow:
+        hidden;
 
-    opacity: 0;
+    opacity:
+        0;
 
     transition:
         max-height 1.2s ease,
@@ -1188,23 +1641,32 @@ button {
 }
 
 .secret.show {
-    max-height: 700px;
+    max-height:
+        700px;
 
-    opacity: 1;
+    opacity:
+        1;
 }
 
 .secret-inner {
-    padding: 50px 35px;
+    padding:
+        50px 35px;
 
     border:
         1px solid #ff1744;
 
-    border-radius: 30px;
+    border-radius:
+        30px;
 
     background:
-        rgba(85,0,25,.55);
+        linear-gradient(
+            145deg,
+            rgba(3, 29, 88, .8),
+            rgba(85, 0, 25, .75)
+        );
 
     box-shadow:
+        0 0 40px rgba(0, 91, 255, .15),
         0 0 40px rgba(255,23,68,.25);
 }
 
@@ -1213,60 +1675,87 @@ button {
         "Dancing Script",
         cursive;
 
-    font-size: 48px;
+    font-size:
+        48px;
 
-    color: #ff5b7b;
+    color:
+        #ff5b7b;
 
-    margin-bottom: 20px;
+    margin-bottom:
+        20px;
 }
 
 .secret p {
-    color: #ffe2e8;
+    color:
+        #ffe2e8;
 
-    line-height: 2;
+    line-height:
+        2;
 }
 
 /* =====================================================
-   FINAL SCREEN
+   FINAL SURPRISE
 ===================================================== */
 
 .final-surprise {
-    position: fixed;
+    position:
+        fixed;
 
-    inset: 0;
+    inset:
+        0;
 
-    z-index: 9000;
+    z-index:
+        9000;
 
-    display: flex;
+    display:
+        flex;
 
-    align-items: center;
+    align-items:
+        center;
 
-    justify-content: center;
+    justify-content:
+        center;
 
-    text-align: center;
+    text-align:
+        center;
 
-    padding: 20px;
+    padding:
+        20px;
 
     background:
         radial-gradient(
-            circle at center,
-            #950022,
-            #250009 55%,
-            #020002
+            circle at 25% 20%,
+            #0b4fd7,
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at 75% 70%,
+            #a4002c,
+            transparent 40%
+        ),
+        linear-gradient(
+            135deg,
+            #02082a,
+            #09002b 50%,
+            #30000d
         );
 
-    opacity: 0;
+    opacity:
+        0;
 
-    visibility: hidden;
+    visibility:
+        hidden;
 
     transition:
         opacity 1s ease;
 }
 
 .final-surprise.show {
-    opacity: 1;
+    opacity:
+        1;
 
-    visibility: visible;
+    visibility:
+        visible;
 }
 
 .final-content h1 {
@@ -1275,28 +1764,37 @@ button {
         cursive;
 
     font-size:
-        clamp(65px, 15vw, 150px);
+        clamp(
+            65px,
+            15vw,
+            150px
+        );
 
-    color: white;
+    color:
+        white;
 
     text-shadow:
         0 0 20px #ff1744,
-        0 0 60px #ff1744;
+        0 0 60px #1677ff;
 
     animation:
         titleGlow 2s infinite alternate;
 }
 
 .final-content p {
-    margin-top: 25px;
+    margin-top:
+        25px;
 
-    font-size: 20px;
+    font-size:
+        20px;
 
-    color: #ffd8e0;
+    color:
+        #ffd8e0;
 }
 
 .close-final {
-    margin-top: 35px;
+    margin-top:
+        35px;
 }
 
 /* =====================================================
@@ -1304,31 +1802,46 @@ button {
 ===================================================== */
 
 .firework {
-    position: fixed;
+    position:
+        fixed;
 
-    width: 5px;
-    height: 5px;
+    width:
+        5px;
 
-    border-radius: 50%;
+    height:
+        5px;
 
-    background: #ff1744;
+    border-radius:
+        50%;
 
-    z-index: 9500;
+    background:
+        #ff1744;
 
-    pointer-events: none;
+    z-index:
+        9500;
+
+    pointer-events:
+        none;
 }
 
 .firework-particle {
-    position: fixed;
+    position:
+        fixed;
 
-    width: 5px;
-    height: 5px;
+    width:
+        5px;
 
-    border-radius: 50%;
+    height:
+        5px;
 
-    z-index: 9500;
+    border-radius:
+        50%;
 
-    pointer-events: none;
+    z-index:
+        9500;
+
+    pointer-events:
+        none;
 }
 
 /* =====================================================
@@ -1336,29 +1849,41 @@ button {
 ===================================================== */
 
 .music {
-    position: fixed;
+    position:
+        fixed;
 
-    top: 18px;
-    left: 18px;
+    top:
+        18px;
 
-    z-index: 500;
+    left:
+        18px;
+
+    z-index:
+        500;
 
     border:
-        1px solid #ff3159;
+        1px solid #328cff;
 
     background:
-        rgba(30,0,10,.8);
+        rgba(4, 16, 55, .85);
 
-    color: white;
+    color:
+        white;
 
     padding:
         11px 17px;
 
-    border-radius: 30px;
+    border-radius:
+        30px;
 
-    cursor: pointer;
+    cursor:
+        pointer;
 
-    backdrop-filter: blur(10px);
+    backdrop-filter:
+        blur(10px);
+
+    box-shadow:
+        0 0 20px rgba(0, 102, 255, .18);
 }
 
 /* =====================================================
@@ -1366,19 +1891,22 @@ button {
 ===================================================== */
 
 footer {
-    text-align: center;
+    text-align:
+        center;
 
     padding:
         50px 20px;
 
     border-top:
-        1px solid rgba(255,23,68,.2);
+        1px solid rgba(0, 102, 255, .25);
 
-    color: #ffb9c7;
+    color:
+        #c7d8ff;
 }
 
 footer strong {
-    color: #ff3159;
+    color:
+        #ff3159;
 }
 
 /* =====================================================
@@ -1387,7 +1915,8 @@ footer strong {
 
 @keyframes heartbeat {
 
-    0%,100% {
+    0%,
+    100% {
         transform:
             rotate(-45deg)
             scale(1);
@@ -1404,14 +1933,15 @@ footer strong {
 
     from {
         text-shadow:
-            0 0 15px #ff1744;
+            0 0 15px #1677ff,
+            0 0 25px #ff1744;
     }
 
     to {
         text-shadow:
-            0 0 20px #ff1744,
+            0 0 20px #1677ff,
             0 0 60px #ff1744,
-            0 0 100px #ff1744;
+            0 0 100px #1677ff;
     }
 }
 
@@ -1431,39 +1961,29 @@ footer strong {
 @media(max-width: 700px) {
 
     .hero {
-        padding-top: 100px;
+        padding-top:
+            100px;
     }
 
     .hero h1 {
-        font-size: 75px;
+        font-size:
+            75px;
     }
 
     .hero-subtitle {
-        font-size: 15px;
-    }
-
-    .time {
-        width: 72px;
-
-        padding:
-            12px 5px;
-    }
-
-    .time-number {
-        font-size: 24px;
-    }
-
-    .time-label {
-        font-size: 8px;
+        font-size:
+            15px;
     }
 
     .letter-grid,
     .memory-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns:
+            1fr;
     }
 
     .letter {
-        min-height: 230px;
+        min-height:
+            230px;
     }
 
     .love-card {
@@ -1472,11 +1992,13 @@ footer strong {
     }
 
     .love-card h2 {
-        font-size: 43px;
+        font-size:
+            43px;
     }
 
     .love-card p {
-        font-size: 15px;
+        font-size:
+            15px;
     }
 
     .cake-scene {
@@ -1491,10 +2013,14 @@ footer strong {
     }
 
     .music {
-        top: 12px;
-        left: 12px;
+        top:
+            12px;
 
-        font-size: 12px;
+        left:
+            12px;
+
+        font-size:
+            12px;
     }
 
     .heart-wrapper {
@@ -1509,15 +2035,76 @@ footer strong {
     }
 
     .secret h3 {
-        font-size: 38px;
+        font-size:
+            38px;
     }
+
+    .cake-topper {
+        font-size:
+            17px;
+
+        top:
+            -48px;
+    }
+}
+
+/* =====================================================
+   BLUE + RED BOY BIRTHDAY THEME
+===================================================== */
+
+.hero,
+.letters,
+.memories,
+.message,
+.kisses,
+.surprise {
+    background:
+        linear-gradient(
+            180deg,
+            rgba(0, 55, 160, .08),
+            rgba(120, 0, 35, .10)
+        );
+}
+
+.cake-section {
+    background:
+        radial-gradient(
+            circle at 50% 40%,
+            rgba(255, 0, 65, .16),
+            transparent 42%
+        ),
+        radial-gradient(
+            circle at 10% 70%,
+            rgba(0, 110, 255, .13),
+            transparent 35%
+        );
+}
+
+.section-title {
+    text-shadow:
+        0 0 15px rgba(0, 110, 255, .35),
+        0 0 25px rgba(255, 23, 68, .35);
+}
+
+.heart-wrapper {
+    background:
+        #1677ff;
+
+    box-shadow:
+        0 0 35px #1677ff,
+        0 0 70px rgba(255, 23, 68, .35);
+}
+
+.heart-wrapper::before,
+.heart-wrapper::after {
+    background:
+        #1677ff;
 }
 
 </style>
 </head>
 
 <body class="locked">
-
 
 <!-- =====================================================
      INTRO
@@ -1528,7 +2115,7 @@ footer strong {
     <div class="intro-content">
 
         <div class="intro-heart">
-            ❤️
+            💙
         </div>
 
         <h1>
@@ -1536,7 +2123,7 @@ footer strong {
         </h1>
 
         <p>
-            Someone very special has a birthday coming. 💕
+            Today is my love birthday. 💙❤️
         </p>
 
         <button
@@ -1575,18 +2162,23 @@ footer strong {
     <div class="container">
 
         <div class="badge">
-            A Birthday Made With Love ❤️
+            A Birthday Made With Love 💙❤️
         </div>
 
         <h1>
+
             Happy Birthday
+
             <br>
+
             <span>Sushil</span>
+
         </h1>
 
         <p class="hero-subtitle">
 
             Today isn't just another day...
+
             <br>
 
             It's the day the world received
@@ -1597,9 +2189,6 @@ footer strong {
             And that deserves a celebration.
 
         </p>
-
-
-       
 
         <button
             class="btn"
@@ -1625,12 +2214,18 @@ footer strong {
     <div class="container">
 
         <h2 class="section-title">
-             Birthday Cake for you 🎂
+            Birthday Cake for you 🎂
         </h2>
 
-        <div class="cake-scene" id="cakeScene">
+        <div
+            class="cake-scene"
+            id="cakeScene">
 
             <div class="cake">
+
+                <div class="cake-topper">
+                    ✨ SUSHIL ✨
+                </div>
 
                 <div class="candles">
 
@@ -1662,8 +2257,20 @@ footer strong {
 
                     <div class="icing"></div>
 
+                    <div class="cake-rose rose-one">
+                        🌹
+                    </div>
+
+                    <div class="cake-rose rose-two">
+                        🌹
+                    </div>
+
+                    <div class="cake-rose rose-three">
+                        🌹
+                    </div>
+
                     <div class="cake-message">
-                        Happy Birthday sanu ❤️
+                        Happy Birthday Sushil ❤️
                     </div>
 
                 </div>
@@ -1673,6 +2280,34 @@ footer strong {
                     class="cake-layer layer-middle">
 
                     <div class="icing"></div>
+
+                    <div
+                        class="cake-rose rose-small"
+                        style="left:18px;">
+
+                        🌹
+
+                    </div>
+
+                    <div
+                        class="cake-rose rose-small"
+                        style="right:18px;">
+
+                        🌹
+
+                    </div>
+
+                    <div
+                        class="cake-rose rose-small"
+                        style="
+                            left:50%;
+                            top:5px;
+                            transform:translateX(-50%);
+                        ">
+
+                        🌹
+
+                    </div>
 
                 </div>
 
@@ -1688,18 +2323,40 @@ footer strong {
 
         </div>
 
-        <div class="cake-controls" id="cakeControls">
-            <button class="btn" id="blowButton" onclick="blowCandles()" disabled>
+
+        <div
+            class="cake-controls"
+            id="cakeControls">
+
+            <button
+                class="btn"
+                id="blowButton"
+                onclick="blowCandles()"
+                disabled>
+
                 💨 Blow the Candles
+
             </button>
 
-            <button class="btn" id="cutButton" onclick="cutCake()" disabled>
+            <button
+                class="btn"
+                id="cutButton"
+                onclick="cutCake()"
+                disabled>
+
                 🔪 Cut the Cake
+
             </button>
 
-            <p class="cake-hint" id="cakeHint">
-                First blow the candles, then cut the cake ❤️
+            <p
+                class="cake-hint"
+                id="cakeHint">
+
+                First blow the candles,
+                then cut the cake ❤️
+
             </p>
+
         </div>
 
     </div>
@@ -1719,9 +2376,7 @@ footer strong {
             Letters with love 💌
         </h2>
 
-
         <div class="letter-grid">
-
 
             <div class="letter">
 
@@ -1736,8 +2391,10 @@ footer strong {
                     to see yourself through my eyes.
 
                     <br><br>
+
                     Then you would understand just how
-                    incredibly special you really are in my eyes. ❤️
+                    incredibly special you really are
+                    in my eyes. ❤️
 
                 </p>
 
@@ -1753,15 +2410,17 @@ footer strong {
                 <p>
 
                     Some people enter our lives
-                    and make everything brighter and that person is you in my life 💕💕
+                    and make everything brighter
+                    and that person is you in my life 💕💕.
 
                     <br><br>
 
                     You are one of those people.
 
-                    Your smile, your presence and simply being with you makes
-                    life a little more beautiful. 💕
-
+                    Your smile, your presence and simply
+                    being with you makes life a little
+                    more beautiful. 💕
+                    
                 </p>
 
             </div>
@@ -1775,9 +2434,9 @@ footer strong {
 
                 <p>
 
-                    May this birthday  bring you happiness that never ends,
-                    dreams that come true and memories
-                    you'll keep forever with me ❤️
+                    May this birthday bring you happiness
+                    that never ends, dreams that come true
+                    and memories you'll keep forever with me ❤️
 
                     <br><br>
 
@@ -1786,7 +2445,6 @@ footer strong {
                 </p>
 
             </div>
-
 
         </div>
 
@@ -1809,37 +2467,78 @@ footer strong {
 
         <div class="memory-grid">
 
-            <!-- Birthday 1 -->
             <div class="memory">
+
                 <div class="memory-photo">
-                    <img src="birthday1.PNG" alt="love">
+
+                    <img
+                        src="birthday1.PNG"
+                        alt="Birthday memory 1">
+
                     <div class="memory-overlay">
-                        <span>your voice my medicine🎂❤️</span>
-                        <p>feels like heaven</p>
+
+                        <span>
+                            your voice my medicine 🎂❤️
+                        </span>
+
+                        <p>
+                            feels like heaven
+                        </p>
+
                     </div>
+
                 </div>
+
             </div>
 
-            <!-- Birthday 2 -->
+
             <div class="memory">
+
                 <div class="memory-photo">
-                    <img src="birthday2.PNG" alt="love">
+
+                    <img
+                        src="birthday2.PNG"
+                        alt="Birthday memory 2">
+
                     <div class="memory-overlay">
-                        <span> happy for your future🎈🥰</span>
-                        <p>keep hustling</p>
+
+                        <span>
+                            happy for your future 🎈🥰
+                        </span>
+
+                        <p>
+                            keep hustling
+                        </p>
+
                     </div>
+
                 </div>
+
             </div>
 
-            <!-- Birthday 3 -->
+
             <div class="memory">
+
                 <div class="memory-photo">
-                    <img src="birthday3.PNG" alt="love">
+
+                    <img
+                        src="birthday3.PNG"
+                        alt="Birthday memory 3">
+
                     <div class="memory-overlay">
-                        <span>my cry baby💋💕</span>
-                        <p>love you</p>
+
+                        <span>
+                            my cry baby 💋💕
+                        </span>
+
+                        <p>
+                            love you
+                        </p>
+
                     </div>
+
                 </div>
+
             </div>
 
         </div>
@@ -1867,6 +2566,7 @@ footer strong {
 
                 On your special day, I wish you
                 a life filled with
+
                 <span class="highlight">
                     endless happiness,
                 </span>
@@ -1902,8 +2602,10 @@ footer strong {
                 <br><br>
 
                 <span class="highlight">
+
                     Happy Birthday, Sushil.
                     ❤️
+
                 </span>
 
             </p>
@@ -1928,7 +2630,9 @@ footer strong {
             <div class="heart-text">
 
                 I Love You
+
                 <br>
+
                 Sushil ❤️
 
             </div>
@@ -1952,17 +2656,29 @@ footer strong {
             Birthday Kisses For You 💋
         </h2>
 
-
         <div class="kiss-row">
 
-            <div class="kiss">💋</div>
-            <div class="kiss">💋</div>
-            <div class="kiss">💋</div>
-            <div class="kiss">💋</div>
-            <div class="kiss">💋</div>
+            <div class="kiss">
+                💋
+            </div>
+
+            <div class="kiss">
+                💋
+            </div>
+
+            <div class="kiss">
+                💋
+            </div>
+
+            <div class="kiss">
+                💋
+            </div>
+
+            <div class="kiss">
+                💋
+            </div>
 
         </div>
-
 
         <p
             style="
@@ -1992,7 +2708,6 @@ footer strong {
             There's Something Else... 🎁
         </h2>
 
-
         <button
             class="btn"
             onclick="openSecret()">
@@ -2013,19 +2728,24 @@ footer strong {
                 </h3>
 
                 <p>
+
                     Today I just want you to know
-                    something simple 
+                    something simple.
 
                     <br><br>
+
                     You matter.
 
                     <br>
+
                     You are appreciated.
 
                     <br>
+
                     You are special
 
                     <br>
+
                     and you deserve every beautiful
                     thing that life has to offer.
 
@@ -2033,18 +2753,22 @@ footer strong {
 
                     I hope you never stop chasing
                     your dreams.
+
                     I hope you never stop smiling.
+
                     And I hope you always remember
                     how amazing you are.
 
                     <br><br>
+
                     No matter how many birthdays
-                    come and go i will be always there to 
-                    celeberate with you 
+                    come and go I will always be there
+                    to celebrate with you.
 
                     <br>
-                    I love you a lot my tamu baby💋💕 
-                    and love me always like you do 
+
+                    I love you a lot my tamu baby 💋💕
+                    and love me always like you do.
 
                     <br><br>
 
@@ -2095,9 +2819,13 @@ footer strong {
         </div>
 
         <h1>
+
             I LOVE YOU
+
             <br>
-            Sanu❤️
+
+            Sanu ❤️
+
         </h1>
 
         <p>
@@ -2130,7 +2858,7 @@ footer strong {
 
 <footer>
 
-    Made with ❤️love,
+    Made with ❤️ love,
     magic and endless kisses 💋
     by your love ❤️Ashma❤️
 
@@ -2142,7 +2870,7 @@ footer strong {
 
     <br><br>
 
-    i love you Forever & Always ✨
+    I love you Forever & Always ✨
 
 </footer>
 
@@ -2151,8 +2879,15 @@ footer strong {
      MUSIC
 ===================================================== -->
 
-<audio id="music" loop preload="metadata">
-    <source src="birthday-song.m4a" type="audio/mp4">
+<audio
+    id="music"
+    loop
+    preload="metadata">
+
+    <source
+        src="birthday-song.m4a"
+        type="audio/mp4">
+
 </audio>
 
 
@@ -2171,17 +2906,29 @@ async function enterWebsite() {
 
     document.body.classList.remove("locked");
 
-    /* Start the birthday song from the Tap To Enter gesture.
-       This works much more reliably because the browser allows
-       audio started directly from a user interaction. */
     try {
+
         music.volume = 0.8;
+
         await music.play();
+
         musicPlaying = true;
-        musicButton.innerHTML = "⏸️ Pause Music";
-    } catch (error) {
-        console.log("Music could not autoplay:", error);
-        musicButton.innerHTML = "🎵 Tap To Play";
+
+        musicButton.innerHTML =
+            "⏸️ Pause Music";
+
+    }
+
+    catch (error) {
+
+        console.log(
+            "Music could not autoplay:",
+            error
+        );
+
+        musicButton.innerHTML =
+            "🎵 Tap To Play";
+
     }
 
     createConfetti(120);
@@ -2195,8 +2942,6 @@ async function enterWebsite() {
 }
 
 
-
-
 /* =====================================================
    CONFETTI
 ===================================================== */
@@ -2204,19 +2949,13 @@ async function enterWebsite() {
 function createConfetti(amount = 100) {
 
     const pieces = [
+        "💙",
+        "🩵",
         "❤️",
-        "💕",
         "✨",
-        "💖",
         "🎉",
-        "◆", 
-       "💙",
-       "💙",
-       "💙",
-       "🩵",
-       "💙"
+        "◆"
     ];
-
 
     for (
         let i = 0;
@@ -2230,16 +2969,14 @@ function createConfetti(amount = 100) {
         piece.className =
             "confetti";
 
-
         const colors = [
+            "#006eff",
+            "#2f8cff",
             "#ff1744",
-            "#ff4081",
-            "#ff80ab",
+            "#ff4770",
             "#ffffff",
-            "#ffd1dc",
-            "#ffb300"
+            "#9ecbff"
         ];
-
 
         piece.style.background =
             colors[
@@ -2249,31 +2986,27 @@ function createConfetti(amount = 100) {
                 )
             ];
 
-
         piece.style.left =
             Math.random() * 100 + "vw";
 
-
         piece.style.setProperty(
             "--move",
-            (Math.random() * 350 - 175)
-            + "px"
+            (
+                Math.random() * 350 - 175
+            ) + "px"
         );
 
-
         piece.style.animationDuration =
-            (3 + Math.random() * 5)
-            + "s";
-
+            (
+                3 +
+                Math.random() * 5
+            ) + "s";
 
         piece.style.animationDelay =
-            Math.random() * 1.5
-            + "s";
-
+            Math.random() * 1.5 + "s";
 
         document.body
             .appendChild(piece);
-
 
         setTimeout(
             () => piece.remove(),
@@ -2297,21 +3030,13 @@ function createHeart() {
     heart.className =
         "heart";
 
-
     const heartTypes = [
-        "❤️",
-        "💕",
-        "💗",
-        "💖",
-        "💘",
-        "💝",
-       "💙",
-       "💙",
-       "💙",
-       "🩵",
-       "💙"
+        "💙",
+        "💙",
+        "🩵",
+        "💙",
+        "💙"
     ];
-
 
     heart.innerHTML =
         heartTypes[
@@ -2321,24 +3046,23 @@ function createHeart() {
             )
         ];
 
-
     heart.style.left =
         Math.random() * 100 + "vw";
 
-
     heart.style.fontSize =
-        (15 + Math.random() * 28)
-        + "px";
-
+        (
+            15 +
+            Math.random() * 28
+        ) + "px";
 
     heart.style.animationDuration =
-        (5 + Math.random() * 7)
-        + "s";
-
+        (
+            5 +
+            Math.random() * 7
+        ) + "s";
 
     document.body
         .appendChild(heart);
-
 
     setTimeout(
         () => heart.remove(),
@@ -2346,7 +3070,6 @@ function createHeart() {
     );
 
 }
-
 
 setInterval(
     createHeart,
@@ -2363,25 +3086,32 @@ function scrollToCake() {
     const cakeSection =
         document.getElementById("cake");
 
-    /* Reveal the cake only after the button is tapped. */
-    cakeSection.classList.remove("cake-hidden");
+    cakeSection.classList.remove(
+        "cake-hidden"
+    );
 
     setTimeout(() => {
+
         cakeSection.scrollIntoView({
             behavior: "smooth",
             block: "center"
         });
+
     }, 100);
 
     createConfetti(100);
+
     createFireworks();
 
-    document.getElementById("blowButton").disabled = false;
+    document.getElementById(
+        "blowButton"
+    ).disabled = false;
+
 }
 
 
 /* =====================================================
-   BLOW CANDLES + CUT CAKE
+   BLOW CANDLES
 ===================================================== */
 
 function blowCandles() {
@@ -2390,30 +3120,51 @@ function blowCandles() {
         document.getElementById("cake");
 
     const blowButton =
-        document.getElementById("blowButton");
+        document.getElementById(
+            "blowButton"
+        );
 
     const cutButton =
-        document.getElementById("cutButton");
+        document.getElementById(
+            "cutButton"
+        );
 
     const hint =
-        document.getElementById("cakeHint");
+        document.getElementById(
+            "cakeHint"
+        );
 
-    if (cakeSection.classList.contains("cake-blown")) {
+    if (
+        cakeSection.classList.contains(
+            "cake-blown"
+        )
+    ) {
         return;
     }
 
-    cakeSection.classList.add("cake-blown");
+    cakeSection.classList.add(
+        "cake-blown"
+    );
 
-    blowButton.disabled = true;
-    cutButton.disabled = false;
+    blowButton.disabled =
+        true;
+
+    cutButton.disabled =
+        false;
 
     hint.innerHTML =
         "✨ Wish made! Now cut your birthday cake, babe ❤️";
 
     createConfetti(80);
+
     createKissExplosion();
+
 }
 
+
+/* =====================================================
+   CUT CAKE
+===================================================== */
 
 function cutCake() {
 
@@ -2421,34 +3172,55 @@ function cutCake() {
         document.getElementById("cake");
 
     const cutButton =
-        document.getElementById("cutButton");
+        document.getElementById(
+            "cutButton"
+        );
 
     const hint =
-        document.getElementById("cakeHint");
+        document.getElementById(
+            "cakeHint"
+        );
 
-    if (!cakeSection.classList.contains("cake-blown")) {
+    if (
+        !cakeSection.classList.contains(
+            "cake-blown"
+        )
+    ) {
+
         hint.innerHTML =
             "💨 Blow the candles first, my love ❤️";
+
         return;
     }
 
-    if (cakeSection.classList.contains("cake-cut")) {
+    if (
+        cakeSection.classList.contains(
+            "cake-cut"
+        )
+    ) {
         return;
     }
 
-    cakeSection.classList.add("cake-cut");
+    cakeSection.classList.add(
+        "cake-cut"
+    );
 
-    cutButton.disabled = true;
+    cutButton.disabled =
+        true;
 
     hint.innerHTML =
         "🎂 Cake cut! Happy Birthday my love ❤️💋";
 
     createConfetti(180);
+
     createFireworks();
 
     setTimeout(() => {
+
         createKissExplosion();
+
     }, 500);
+
 }
 
 
@@ -2459,11 +3231,13 @@ function cutCake() {
 function openSecret() {
 
     const secret =
-        document.getElementById("secret");
+        document.getElementById(
+            "secret"
+        );
 
-
-    secret.classList.toggle("show");
-
+    secret.classList.toggle(
+        "show"
+    );
 
     createConfetti(160);
 
@@ -2489,45 +3263,42 @@ function createKissExplosion() {
         const kiss =
             document.createElement("div");
 
-
         kiss.innerHTML =
             "💋";
-
 
         kiss.style.position =
             "fixed";
 
-
         kiss.style.left =
             "50%";
-
 
         kiss.style.top =
             "50%";
 
-
         kiss.style.fontSize =
-            (18 + Math.random() * 25)
-            + "px";
-
+            (
+                18 +
+                Math.random() * 25
+            ) + "px";
 
         kiss.style.zIndex =
             "999";
 
-
         kiss.style.pointerEvents =
             "none";
 
+        kiss.style.filter =
+            "drop-shadow(0 0 10px #ff1744)";
 
         const x =
-            (Math.random() - .5)
-            * 800;
-
+            (
+                Math.random() - .5
+            ) * 800;
 
         const y =
-            (Math.random() - .5)
-            * 650;
-
+            (
+                Math.random() - .5
+            ) * 650;
 
         kiss.animate(
 
@@ -2536,6 +3307,7 @@ function createKissExplosion() {
                 {
                     transform:
                         "translate(-50%,-50%) scale(0)",
+
                     opacity: 1
                 },
 
@@ -2554,20 +3326,20 @@ function createKissExplosion() {
             ],
 
             {
+
                 duration:
                     1500 +
                     Math.random() * 1000,
 
                 easing:
                     "cubic-bezier(.17,.67,.83,.67)"
+
             }
 
         );
 
-
         document.body
             .appendChild(kiss);
-
 
         setTimeout(
             () => kiss.remove(),
@@ -2604,14 +3376,16 @@ function createFireworks() {
 function launchFirework() {
 
     const x =
-        Math.random() * window.innerWidth;
-
+        Math.random() *
+        window.innerWidth;
 
     const y =
         100 +
         Math.random() *
-        (window.innerHeight * .5);
-
+        (
+            window.innerHeight *
+            .5
+        );
 
     for (
         let i = 0;
@@ -2622,56 +3396,48 @@ function launchFirework() {
         const particle =
             document.createElement("div");
 
-
         particle.className =
             "firework-particle";
-
 
         particle.style.left =
             x + "px";
 
-
         particle.style.top =
             y + "px";
 
-
         const angle =
             Math.random() *
-            Math.PI * 2;
-
+            Math.PI *
+            2;
 
         const distance =
             50 +
-            Math.random() * 130;
-
+            Math.random() *
+            130;
 
         const endX =
             Math.cos(angle) *
             distance;
 
-
         const endY =
             Math.sin(angle) *
             distance;
 
-
         particle.style.background =
             [
+                "#006eff",
+                "#2f8cff",
                 "#ff1744",
-                "#ff80ab",
-                "#ffffff",
-                "#ffd1dc",
-                "#ffb300"
+                "#ff4770",
+                "#ffffff"
             ][
                 Math.floor(
                     Math.random() * 5
                 )
             ];
 
-
         document.body
             .appendChild(particle);
-
 
         particle.animate(
 
@@ -2680,6 +3446,7 @@ function launchFirework() {
                 {
                     transform:
                         "translate(0,0) scale(1)",
+
                     opacity: 1
                 },
 
@@ -2697,16 +3464,17 @@ function launchFirework() {
             ],
 
             {
+
                 duration:
                     900 +
                     Math.random() * 700,
 
                 easing:
                     "ease-out"
+
             }
 
         );
-
 
         setTimeout(
             () => particle.remove(),
@@ -2729,9 +3497,9 @@ function finalSurprise() {
             "finalSurprise"
         );
 
-
-    final.classList.add("show");
-
+    final.classList.add(
+        "show"
+    );
 
     createConfetti(250);
 
@@ -2742,12 +3510,10 @@ function finalSurprise() {
         1500
     );
 
-
     setTimeout(
         createFireworks,
         3000
     );
-
 
     createKissExplosion();
 
@@ -2760,7 +3526,9 @@ function closeFinal() {
         .getElementById(
             "finalSurprise"
         )
-        .classList.remove("show");
+        .classList.remove(
+            "show"
+        );
 
 }
 
@@ -2769,10 +3537,19 @@ function closeFinal() {
    MUSIC
 ===================================================== */
 
-const music = document.getElementById("music");
-const musicButton = document.getElementById("musicButton");
+const music =
+    document.getElementById(
+        "music"
+    );
 
-let musicPlaying = false;
+const musicButton =
+    document.getElementById(
+        "musicButton"
+    );
+
+let musicPlaying =
+    false;
+
 
 async function toggleMusic() {
 
@@ -2780,30 +3557,45 @@ async function toggleMusic() {
 
         if (!musicPlaying) {
 
-            music.volume = 0.8;
+            music.volume =
+                0.8;
 
             await music.play();
 
-            musicPlaying = true;
+            musicPlaying =
+                true;
 
-            musicButton.innerHTML = "⏸️ Pause Music";
+            musicButton.innerHTML =
+                "⏸️ Pause Music";
 
-        } else {
+        }
+
+        else {
 
             music.pause();
 
-            musicPlaying = false;
+            musicPlaying =
+                false;
 
-            musicButton.innerHTML = "🎵 Play Music";
+            musicButton.innerHTML =
+                "🎵 Play Music";
+
         }
 
-    } catch (error) {
+    }
 
-        console.log("Audio error:", error);
+    catch (error) {
 
-        musicButton.innerHTML = "🎵 Tap Again";
+        console.log(
+            "Audio error:",
+            error
+        );
+
+        musicButton.innerHTML =
+            "🎵 Tap Again";
 
     }
+
 }
 
 
@@ -2821,38 +3613,29 @@ document.addEventListener(
             return;
         }
 
-
         const sparkle =
             document.createElement("div");
-
 
         sparkle.innerHTML =
             "✨";
 
-
         sparkle.style.position =
             "fixed";
-
 
         sparkle.style.left =
             event.clientX + "px";
 
-
         sparkle.style.top =
             event.clientY + "px";
-
 
         sparkle.style.zIndex =
             "999";
 
-
         sparkle.style.pointerEvents =
             "none";
 
-
         document.body
             .appendChild(sparkle);
-
 
         sparkle.animate(
 
@@ -2861,12 +3644,14 @@ document.addEventListener(
                 {
                     transform:
                         "scale(0)",
+
                     opacity: 1
                 },
 
                 {
                     transform:
                         "translateY(-60px) scale(1.5)",
+
                     opacity: 0
                 }
 
@@ -2877,7 +3662,6 @@ document.addEventListener(
             }
 
         );
-
 
         setTimeout(
             () => sparkle.remove(),
@@ -2890,9 +3674,6 @@ document.addEventListener(
 
 /* =====================================================
    BIRTHDAY DAY SPECIAL EFFECT
-
-   If it is actually August 31,
-   automatically celebrate.
 ===================================================== */
 
 function checkBirthday() {
@@ -2900,16 +3681,14 @@ function checkBirthday() {
     const now =
         new Date();
 
-
     const month =
         now.getMonth();
-
 
     const date =
         now.getDate();
 
+    /* August = 7 */
 
-    // August = 7
     if (
         month === 7 &&
         date === 31
@@ -2929,7 +3708,6 @@ function checkBirthday() {
     }
 
 }
-
 
 checkBirthday();
 
